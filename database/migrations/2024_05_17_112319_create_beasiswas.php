@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('beasiswas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id')->constrained();
+            $table->string('nama');
+            $table->string('benefit');
+            $table->string('persyaratan');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }
