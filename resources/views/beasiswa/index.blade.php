@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             @foreach ($beasiswas as $beasiswa)
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3" style="max-width: 540px; margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded-start"
@@ -26,9 +26,24 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $beasiswa->name }}</h5>
+                                <p class="card-text"><small class="text-body-secondary">Beasiswa, {{ $beasiswa->created_at }}</small></p>
+                                <h2 class="card-title" style="font-weight: bold">{{ $beasiswa->name }}</h2>
                                 <p class="card-text">{{ $beasiswa->description }}</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                <a href="{{ route('beasiswas.show', ['beasiswa' => $beasiswa->id]) }}"
+                                    class="btn btn-outline-dark btn-sm me-2"><i class="fa-solid fa-circle-info"></i></a>
+                                <a href="{{ route('beasiswas.edit', ['beasiswa' => $beasiswa->id]) }}"
+                                    class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                <div>
+                                    <form action="{{ route('beasiswas.destroy', ['beasiswa' => $beasiswa->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
+                                            data-name="{{ $beasiswa->name }}">
+                                            <i class="bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

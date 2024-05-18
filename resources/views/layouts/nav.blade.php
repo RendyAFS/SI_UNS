@@ -1,8 +1,34 @@
+<style>
+    body {
+        background-color: #D6F0F3;
+    }
+
+    .navbar {
+        font-size: 1.25rem;
+    }
+
+    .navbar-brand, .nav-link, .dropdown-item {
+        color: #000 !important;
+        font-weight: bold;
+    }
+
+    .navbar-brand:hover, .nav-link:hover, .dropdown-item:hover {
+        color: #555 !important;
+    }
+
+    .dropdown-item.text-danger {
+        color: red !important;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+</style>
 <div id="app">
     @auth
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #D6F0F3; padding: 1rem;">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/home') }}"><i class="bi-hexagon-fill me-2"></i>SIUNS</a>
+            <a class="navbar-brand" href="{{ url('/home') }}">SIUNS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,3 +70,4 @@
     </nav>
     @endauth
 </div>
+
