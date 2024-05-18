@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('lombas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->constrained();
-            $table->string('nama');
-            $table->string('persyaratan');
-            $table->string('deskripsi');
+            $table->string('name');
+            $table->string('requirement');
+            $table->string('description');
+            $table->string('image');
             $table->timestamps();
         });
     }
