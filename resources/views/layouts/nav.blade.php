@@ -28,7 +28,7 @@
     @auth
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #D6F0F3; padding: 1rem;">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/home') }}">SIUNS</a>
+            <a class="navbar-brand" href="{{ url('/') }}"><i class="bi-hexagon-fill me-2"></i>SIUNS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,9 +50,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profile') }}">
-                                <i class="bi bi-person"></i> {{ __('My Profile') }}
-                            </a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
