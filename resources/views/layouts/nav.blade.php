@@ -1,29 +1,3 @@
-<style>
-    body {
-        background-color: #D6F0F3;
-    }
-
-    .navbar {
-        font-size: 1.25rem;
-    }
-
-    .navbar-brand, .nav-link, .dropdown-item {
-        color: #000 !important;
-        font-weight: bold;
-    }
-
-    .navbar-brand:hover, .nav-link:hover, .dropdown-item:hover {
-        color: #555 !important;
-    }
-
-    .dropdown-item.text-danger {
-        color: red !important;
-    }
-
-    .navbar-toggler-icon {
-        filter: invert(1);
-    }
-</style>
 <div id="app">
     @auth
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #D6F0F3; padding: 1rem;">
