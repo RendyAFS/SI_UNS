@@ -9,37 +9,37 @@
             <div class="col-lg-3 col-xl-6">
                 <ul class="list-inline mb-0 float-end">
                     <li class="list-inline-item">
-                        <a href="{{ route('beasiswas.create') }}" class="btn btn-dark">
-                            <i class="bi bi-plus-circle me-1"></i> Create Beasiswa
+                        <a href="{{ route('lombas.create') }}" class="btn btn-dark">
+                            <i class="bi bi-plus-circle me-1"></i> Create Lomba
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="row">
-            @foreach ($beasiswas as $beasiswa)
+            @foreach ($lombas as $lomba)
                 <div class="card mb-3" style="max-width: 540px; margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded-start"
+                            <img src="{{ asset('storage/files/' . $lomba->image) }}" class="img-fluid rounded-start"
                                 alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <p class="card-text"><small class="text-body-secondary">Beasiswa, {{ $beasiswa->created_at }}</small></p>
-                                <h2 class="card-title" style="font-weight: bold">{{ $beasiswa->name }}</h2>
-                                <p class="card-text">{{ $beasiswa->description }}</p>
-                                <a href="{{ route('beasiswas.show', ['beasiswa' => $beasiswa->id]) }}"
+                                <p class="card-text"><small class="text-body-secondary">Lomba, {{ $lomba->created_at }}</small></p>
+                                <h2 class="card-title" style="font-weight: bold">{{ $lomba->name }}</h2>
+                                <p class="card-text">{{ $lomba->description }}</p>
+                                <a href="{{ route('lombas.show', ['lomba' => $lomba->id]) }}"
                                     class="btn btn-outline-dark btn-sm me-2"><i class="fa-solid fa-circle-info"></i></a>
-                                <a href="{{ route('beasiswas.edit', ['beasiswa' => $beasiswa->id]) }}"
+                                <a href="{{ route('lombas.edit', ['lomba' => $lomba->id]) }}"
                                     class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
                                 <div>
-                                    <form action="{{ route('beasiswas.destroy', ['beasiswa' => $beasiswa->id]) }}"
+                                    <form action="{{ route('lombas.destroy', ['lomba' => $lomba->id]) }}"
                                         method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
-                                            data-name="{{ $beasiswa->name }}">
+                                            data-name="{{ $lomba->name }}">
                                             <i class="bi-trash"></i>
                                         </button>
                                     </form>
