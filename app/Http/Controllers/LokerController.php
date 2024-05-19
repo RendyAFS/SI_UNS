@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Beasiswa;
+use App\Models\Loker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 
-
-class BeasiswaController extends Controller
+class LokerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pageTitle = 'Beasiswa List';
+        $pageTitle = 'Loker List';
 
-        $beasiswas = Beasiswa::all();
+        $lokers = Loker::all();
 
-        return view('beasiswa.index', compact('pageTitle', 'beasiswas'));
+        return view('loker.index', compact('pageTitle', 'lokers'));
     }
 
     /**
@@ -28,9 +27,9 @@ class BeasiswaController extends Controller
      */
     public function create()
     {
-        $pageTitle = 'Create Beasiswa';
+        $pageTitle = 'Create Loker';
 
-        return view('beasiswa.create', compact('pageTitle'));
+        return view('loker.create', compact('pageTitle'));
     }
 
     /**
@@ -52,23 +51,23 @@ class BeasiswaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $beasiswa = new Beasiswa();
-        $beasiswa->name = $request->name;
-        $beasiswa->requirement = $request->requirement;
-        $beasiswa->description = $request->description;
+        $loker = new Loker();
+        $loker->name = $request->name;
+        $loker->requirement = $request->requirement;
+        $loker->description = $request->description;
 
         $file = $request->file('image');
         if ($file != null) {
             $filename = $file->getClientOriginalName();
             $file->storeAs('public/files', $filename);
-            $beasiswa->image = $filename;
+            $loker->image = $filename;
         }
 
-        $beasiswa->save();
+        $loker->save();
 
-        Alert::success('Added Successfully', 'Beasiswa Data Added Successfully.');
+        Alert::success('Added Successfully', 'Loker Data Added Successfully.');
 
-        return redirect()->route('beasiswas.index');
+        return redirect()->route('lokers.index');
     }
 
     /**
@@ -76,11 +75,11 @@ class BeasiswaController extends Controller
      */
     public function show(string $id)
     {
-        $pageTitle = 'Beasiswa Detail';
+        $pageTitle = 'Loker Detail';
 
-        $beasiswa = Beasiswa::find($id);
+        $loker = Loker::find($id);
 
-        return view('beasiswa.show', compact('pageTitle', 'beasiswa'));
+        return view('loker.show', compact('pageTitle', 'loker'));
     }
 
     /**
@@ -88,11 +87,11 @@ class BeasiswaController extends Controller
      */
     public function edit(string $id)
     {
-        $pageTitle = 'Beasiswa Edit';
+        $pageTitle = 'Loker Edit';
 
-        $beasiswa = Beasiswa::find($id);
+        $loker = Loker::find($id);
 
-        return view('beasiswa.edit', compact('pageTitle', 'beasiswa'));
+        return view('loker.edit', compact('pageTitle', 'loker'));
     }
 
     /**
@@ -114,16 +113,16 @@ class BeasiswaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $beasiswa = Beasiswa::find($id);
-        $beasiswa->name = $request->name;
-        $beasiswa->requirement = $request->requirement;
-        $beasiswa->description = $request->description;
+        $loker = Loker::find($id);
+        $loker->name = $request->name;
+        $loker->requirement = $request->requirement;
+        $loker->description = $request->description;
 
-        $beasiswa->save();
+        $loker->save();
 
-        Alert::success('Changed Successfully', 'Beasiswa Data Changed Successfully.');
+        Alert::success('Changed Successfully', 'Loker Data Changed Successfully.');
 
-        return redirect()->route('beasiswas.index');
+        return redirect()->route('lokers.index');
     }
 
     /**
@@ -131,12 +130,12 @@ class BeasiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        $beasiswa = beasiswa::find($id);
+        $loker = Loker::find($id);
 
-        $beasiswa->delete();
+        $loker->delete();
 
-        Alert::success('Deleted Successfully', 'Beasiswa Data Deleted Successfully.');
+        Alert::success('Deleted Successfully', 'Loker Data Deleted Successfully.');
 
-        return redirect()->route('beasiswas.index');
+        return redirect()->route('lokers.index');
     }
 }

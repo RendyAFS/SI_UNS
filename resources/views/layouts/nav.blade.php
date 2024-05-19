@@ -2,7 +2,7 @@
     @auth
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #D6F0F3; padding: 1rem;">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}"><i class="bi-hexagon-fill me-2"></i>SIUNS</a>
+            <a class="navbar-brand" href="{{ url('/') }}"></i>SIUNS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -11,8 +11,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item col-2 col-md-auto"><a href="{{ route('beasiswas.index') }}" class="nav-link">Beasiswa</a></li>
-                    <li class="nav-item col-2 col-md-auto"><a href="" class="nav-link">Lomba</a></li>
-                    <li class="nav-item col-2 col-md-auto"><a href="" class="nav-link">Loker</a></li>
+                    <li class="nav-item col-2 col-md-auto"><a href="{{ route('lombas.index') }}" class="nav-link">Lomba</a></li>
+                    <li class="nav-item col-2 col-md-auto"><a href="{{ route('lokers.index') }}" class="nav-link">Loker</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

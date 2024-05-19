@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Beasiswa;
+use App\Models\Lomba;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 
-
-class BeasiswaController extends Controller
+class LombaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $pageTitle = 'Beasiswa List';
+        $pageTitle = 'Lomba List';
 
-        $beasiswas = Beasiswa::all();
+        $lombas = Lomba::all();
 
-        return view('beasiswa.index', compact('pageTitle', 'beasiswas'));
+        return view('lomba.index', compact('pageTitle', 'lombas'));
     }
 
     /**
@@ -28,9 +27,9 @@ class BeasiswaController extends Controller
      */
     public function create()
     {
-        $pageTitle = 'Create Beasiswa';
+        $pageTitle = 'Create Lomba';
 
-        return view('beasiswa.create', compact('pageTitle'));
+        return view('lomba.create', compact('pageTitle'));
     }
 
     /**
@@ -52,23 +51,23 @@ class BeasiswaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $beasiswa = new Beasiswa();
-        $beasiswa->name = $request->name;
-        $beasiswa->requirement = $request->requirement;
-        $beasiswa->description = $request->description;
+        $lomba = new Lomba();
+        $lomba->name = $request->name;
+        $lomba->requirement = $request->requirement;
+        $lomba->description = $request->description;
 
         $file = $request->file('image');
         if ($file != null) {
             $filename = $file->getClientOriginalName();
             $file->storeAs('public/files', $filename);
-            $beasiswa->image = $filename;
+            $lomba->image = $filename;
         }
 
-        $beasiswa->save();
+        $lomba->save();
 
-        Alert::success('Added Successfully', 'Beasiswa Data Added Successfully.');
+        Alert::success('Added Successfully', 'Lomba Data Added Successfully.');
 
-        return redirect()->route('beasiswas.index');
+        return redirect()->route('lombas.index');
     }
 
     /**
@@ -76,11 +75,11 @@ class BeasiswaController extends Controller
      */
     public function show(string $id)
     {
-        $pageTitle = 'Beasiswa Detail';
+        $pageTitle = 'Lomba Detail';
 
-        $beasiswa = Beasiswa::find($id);
+        $lomba = Lomba::find($id);
 
-        return view('beasiswa.show', compact('pageTitle', 'beasiswa'));
+        return view('lomba.show', compact('pageTitle', 'lomba'));
     }
 
     /**
@@ -88,11 +87,11 @@ class BeasiswaController extends Controller
      */
     public function edit(string $id)
     {
-        $pageTitle = 'Beasiswa Edit';
+        $pageTitle = 'Lomba Edit';
 
-        $beasiswa = Beasiswa::find($id);
+        $lomba = Lomba::find($id);
 
-        return view('beasiswa.edit', compact('pageTitle', 'beasiswa'));
+        return view('lomba.edit', compact('pageTitle', 'lomba'));
     }
 
     /**
@@ -114,16 +113,16 @@ class BeasiswaController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $beasiswa = Beasiswa::find($id);
-        $beasiswa->name = $request->name;
-        $beasiswa->requirement = $request->requirement;
-        $beasiswa->description = $request->description;
+        $lomba = Lomba::find($id);
+        $lomba->name = $request->name;
+        $lomba->requirement = $request->requirement;
+        $lomba->description = $request->description;
 
-        $beasiswa->save();
+        $lomba->save();
 
-        Alert::success('Changed Successfully', 'Beasiswa Data Changed Successfully.');
+        Alert::success('Changed Successfully', 'Lomba Data Changed Successfully.');
 
-        return redirect()->route('beasiswas.index');
+        return redirect()->route('lombas.index');
     }
 
     /**
@@ -131,12 +130,12 @@ class BeasiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        $beasiswa = beasiswa::find($id);
+        $lomba = Lomba::find($id);
 
-        $beasiswa->delete();
+        $lomba->delete();
 
-        Alert::success('Deleted Successfully', 'Beasiswa Data Deleted Successfully.');
+        Alert::success('Deleted Successfully', 'Lomba Data Deleted Successfully.');
 
-        return redirect()->route('beasiswas.index');
+        return redirect()->route('lombas.index');
     }
 }
