@@ -92,13 +92,6 @@
                     Beasiswa, Lomba, dan Lowongan Kerja Terbaru
                 </p>
             </div>
-            <div class="col-12 col-md-3 d-flex justify-content-end">
-                <span class="align-middle">
-                    <a href="" class="link-offset-2 link-underline link-underline-opacity-0 l-semuanya">
-                        Lihat Semuanya
-                    </a>
-                </span>
-            </div>
         </div>
         <hr class="line-hr">
         <div class="row">
