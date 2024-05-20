@@ -17,7 +17,7 @@ class LokerController extends Controller
     {
         $pageTitle = 'Loker List';
 
-        $lokers = Loker::all();
+        $lokers = Loker::orderBy('created_at', 'desc')->get();
 
         return view('loker.index', compact('pageTitle', 'lokers'));
     }

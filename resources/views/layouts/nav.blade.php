@@ -15,24 +15,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item col-2 col-md-auto"><a href="{{ route('beasiswas.index') }}"
+                        <li class="nav-item col-2 col-md-auto fs-6"><a href="{{ route('beasiswas.index') }}"
                                 class="nav-link">Beasiswa</a></li>
-                        <li class="nav-item col-2 col-md-auto"><a href="{{ route('lombas.index') }}"
+                        <li class="nav-item col-2 col-md-auto fs-6"><a href="{{ route('lombas.index') }}"
                                 class="nav-link">Lomba</a></li>
-                        <li class="nav-item col-2 col-md-auto"><a href="{{ route('lokers.index') }}"
-                                class="nav-link">Loker</a></li>
+                        <li class="nav-item col-2 col-md-auto fs-6"><a href="{{ route('lokers.index') }}"
+                                class="nav-link">Lowongan Kerja</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle fs-6" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-end fs-6" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
