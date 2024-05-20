@@ -89,7 +89,7 @@
                     Informasi Terbaru
                 </p>
                 <p class="fs-5">
-                    Beasiswa, Lomba, dan Loker Terbaru
+                    Beasiswa, Lomba, dan Lowongan Kerja Terbaru
                 </p>
             </div>
             <div class="col-12 col-md-3 d-flex justify-content-end">
