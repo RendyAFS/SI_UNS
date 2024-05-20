@@ -14,6 +14,9 @@ Route::get('/', [GuestController::class, 'indexwelcome'])->name('guest.welcome')
 Route::get('/guest/beasiswa', [GuestController::class, 'indexbeasiswa'])->name('guest.beasiswa');
 Route::get('/guest/lomba', [GuestController::class, 'indexlomba'])->name('guest.lomba');
 Route::get('/guest/loker', [GuestController::class, 'indexloker'])->name('guest.loker');
+Route::get('/guest/detail-beasiswa/{id}', [GuestController::class, 'infobeasiswa'])->name('guest.detail_beasiswa');
+Route::get('/guest/detail-lomba/{id}', [GuestController::class, 'infoLomba'])->name('guest.detail_lomba');
+Route::get('/guest/detail-loker/{id}', [GuestController::class, 'infoloker'])->name('guest.detail_loker');
 
 
 

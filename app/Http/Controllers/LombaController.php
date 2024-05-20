@@ -15,7 +15,7 @@ class LombaController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Lomba List';
+        $pageTitle = 'List Lomba';
 
         $lombas = Lomba::orderBy('created_at', 'desc')->get();
 
@@ -42,9 +42,10 @@ class LombaController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'requirement' => 'required',
-            'description' => 'required'
+            'nama' => 'required',
+            'persyaratan' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'required ',
         ], $messages);
 
         if ($validator->fails()) {
@@ -52,11 +53,11 @@ class LombaController extends Controller
         }
 
         $lomba = new Lomba();
-        $lomba->name = $request->name;
-        $lomba->requirement = $request->requirement;
-        $lomba->description = $request->description;
+        $lomba->name = $request->nama;
+        $lomba->requirement = $request->persyaratan;
+        $lomba->description = $request->deskripsi;
 
-        $file = $request->file('image');
+        $file = $request->file('foto');
         if ($file != null) {
             $filename = $file->getClientOriginalName();
             $file->storeAs('public/files', $filename);
@@ -65,7 +66,7 @@ class LombaController extends Controller
 
         $lomba->save();
 
-        Alert::success('Added Successfully', 'Lomba Data Added Successfully.');
+        Alert::success('Added Successfully', 'Lomba Added Successfully.');
 
         return redirect()->route('lombas.index');
     }
@@ -104,9 +105,9 @@ class LombaController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'requirement' => 'required',
-            'description' => 'required'
+            'nama' => 'required',
+            'persyaratan' => 'required',
+            'deskripsi' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -114,13 +115,13 @@ class LombaController extends Controller
         }
 
         $lomba = Lomba::find($id);
-        $lomba->name = $request->name;
-        $lomba->requirement = $request->requirement;
-        $lomba->description = $request->description;
+        $lomba->name = $request->nama;
+        $lomba->requirement = $request->persyaratan;
+        $lomba->description = $request->deskripsi;
 
         $lomba->save();
 
-        Alert::success('Changed Successfully', 'Lomba Data Changed Successfully.');
+        Alert::success('Changed Successfully', 'Lomba Changed Successfully.');
 
         return redirect()->route('lombas.index');
     }
@@ -131,6 +132,10 @@ class LombaController extends Controller
     public function destroy(string $id)
     {
         $lomba = Lomba::find($id);
+
+        if ($lomba->image) {
+            Storage::delete('public/files/' . $lomba->image);
+        }
 
         $lomba->delete();
 

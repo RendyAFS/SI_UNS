@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app_guest')
 
 @section('content')
-    @include('layouts.nav_user')
-
     <div class="container mt-5 mb-5">
         <span class="h1 fw-bold">
             List Lowongan Kerja
@@ -30,8 +28,8 @@
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="" class="btn btn-outline-dark btn-sm me-2"><i
-                                            class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('guest.detail_loker', ['id' => $loker->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
                                 </div>
                             </div>
                         </div>

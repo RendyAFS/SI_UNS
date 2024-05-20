@@ -1,4 +1,4 @@
-@extends('layouts.appauth')
+@extends('layouts.app_auth_nofooter')
 
 @section('content')
     {{-- PC --}}
