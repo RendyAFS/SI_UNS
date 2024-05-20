@@ -1,61 +1,42 @@
 <footer>
-    <div class="content">
-        <div class="top">
-            <div class="logo-details">
-                <i class="fab fa-slack"></i>
-                <span class="logo_name">CodeStella</span>
+    <div class="container pb-5">
+        <div class="conten-1 pt-5 pb-3">
+            <div class="row">
+                <div class="col-12 col-md-1 me-5">
+                    <img class="img me-4 mb-3" style="width: 120px" src="{{ Vite::asset('resources/assets/logo-siuns.webp') }}"
+                        alt="image">
+                </div>
+                <div class="col-12 col-md-10">
+                    <span>
+                        Panduan memilih Beasiswa, Lomba, dan Lowongan Kerja untuk masa depan mu.
+                    </span>
+                </div>
             </div>
-            <div class="media-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <hr class="line-hr">
+        <div class="content-2 mb-3 mt-5">
+            <div class="row">
+                <div class="col-12 col-md-1 me-5  mb-3">
+                    <img class="img me-4" style="width: 100px" src="{{ Vite::asset('resources/assets/logo-uns.webp') }}"
+                        alt="image">
+                    <span class="">
+                </div>
+                <div class="col-12 col-md-3 me-5 mb-3">
+                    <span class="fw-bold fs-5">Universitas Sebelas Maret</span>
+                    <p>
+                        Kentingan Jl. Ir. Sutami No.36, Jebres, Kec. Jebres, Kota Surakarta, Jawa Tengah 57126
+                    </p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <span class="fw-bold fs-5">Informasi</span>
+                    <p>Beasiswa</p>
+                    <p>Lomba</p>
+                    <p>Lowongan Kerja</p>
+                </div>
             </div>
+
+
         </div>
-        <div class="link-boxes">
-            <ul class="box">
-                <li class="link_name">Company</li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Get started</a></li>
-            </ul>
-            <ul class="box">
-                <li class="link_name">Services</li>
-                <li><a href="#">App design</a></li>
-                <li><a href="#">Web design</a></li>
-                <li><a href="#">Logo design</a></li>
-                <li><a href="#">Banner design</a></li>
-            </ul>
-            <ul class="box">
-                <li class="link_name">Account</li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">My account</a></li>
-                <li><a href="#">Prefrences</a></li>
-                <li><a href="#">Purchase</a></li>
-            </ul>
-            <ul class="box">
-                <li class="link_name">Courses</li>
-                <li><a href="#">HTML & CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-                <li><a href="#">Photography</a></li>
-                <li><a href="#">Photoshop</a></li>
-            </ul>
-            <ul class="box input-box">
-                <li class="link_name">Subscribe</li>
-                <li><input type="text" placeholder="Enter your email"></li>
-                <li><input type="button" value="Subscribe"></li>
-            </ul>
-        </div>
-    </div>
-    <div class="bottom-details">
-        <div class="bottom_text">
-            <span class="copyright_text">Copyright © 2024 <a href="#">CodingStella </a>All rights reserved</span>
-            <span class="policy_terms">
-                <a href="#">Privacy policy</a>
-                <a href="#">Terms & condition</a>
-            </span>
-        </div>
+        <hr class="line-hr">
     </div>
 </footer>

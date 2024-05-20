@@ -17,32 +17,36 @@
             </div>
         </div>
         <div class="row">
+            {{-- DATA --}}
             @foreach ($lokers as $loker)
-                <div class="card mb-3" style="max-width: 540px; margin: 10px">
+                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ asset('storage/files/' . $loker->image) }}" class="img-fluid rounded-start"
-                                alt="...">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('storage/files/' . $loker->image) }}" class="img-fluid rounded shadow" alt="..." style="max-height: 180px;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Loker, {{ $loker->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $loker->name }}</h2>
                                 <p class="card-text">{{ $loker->description }}</p>
-                                <a href="{{ route('lokers.show', ['loker' => $loker->id]) }}"
-                                    class="btn btn-outline-dark btn-sm me-2"><i class="fa-solid fa-circle-info"></i></a>
-                                <a href="{{ route('lokers.edit', ['loker' => $loker->id]) }}"
-                                    class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-                                <div>
-                                    <form action="{{ route('lokers.destroy', ['loker' => $loker->id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
-                                            data-name="{{ $loker->name }}">
-                                            <i class="bi-trash"></i>
-                                        </button>
-                                    </form>
+
+                                {{-- Action --}}
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ route('lokers.show', ['loker' => $loker->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('lokers.edit', ['loker' => $loker->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                    <div>
+                                        <form action="{{ route('lokers.destroy', ['loker' => $loker->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
+                                                data-name="{{ $loker->name }}">
+                                                <i class="bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

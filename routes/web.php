@@ -1,14 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeasiswaController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LokerController;
 use App\Http\Controllers\LombaController;
-use App\Models\Beasiswa;
-use App\Models\Lomba;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -19,6 +16,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('beasiswas', BeasiswaController::class);
-Route::resource('lombas', LombaController::class);
-Route::resource('lokers', LokerController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('beasiswas', BeasiswaController::class);
+    Route::resource('lombas', LombaController::class);
+    Route::resource('lokers', LokerController::class);
+});
+
+
+
+// Guest
+Route::get('/guest/beasiswa', [GuestController::class, 'indexbeasiswa'])->name('guest.beasiswa');
+Route::get('/guest/lomba', [GuestController::class, 'indexlomba'])->name('guest.lomba');
+Route::get('/guest/loker', [GuestController::class, 'indexloker'])->name('guest.loker');

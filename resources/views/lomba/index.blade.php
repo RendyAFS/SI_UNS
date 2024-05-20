@@ -17,32 +17,36 @@
             </div>
         </div>
         <div class="row">
+            {{-- DATA --}}
             @foreach ($lombas as $lomba)
-                <div class="card mb-3" style="max-width: 540px; margin: 10px">
+                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ asset('storage/files/' . $lomba->image) }}" class="img-fluid rounded-start"
-                                alt="...">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('storage/files/' . $lomba->image) }}" class="img-fluid rounded shadow" alt="..." style="max-height: 180px;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Lomba, {{ $lomba->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $lomba->name }}</h2>
                                 <p class="card-text">{{ $lomba->description }}</p>
-                                <a href="{{ route('lombas.show', ['lomba' => $lomba->id]) }}"
-                                    class="btn btn-outline-dark btn-sm me-2"><i class="fa-solid fa-circle-info"></i></a>
-                                <a href="{{ route('lombas.edit', ['lomba' => $lomba->id]) }}"
-                                    class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-                                <div>
-                                    <form action="{{ route('lombas.destroy', ['lomba' => $lomba->id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
-                                            data-name="{{ $lomba->name }}">
-                                            <i class="bi-trash"></i>
-                                        </button>
-                                    </form>
+
+                                {{-- Action --}}
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ route('lombas.show', ['lomba' => $lomba->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('lombas.edit', ['lomba' => $lomba->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                    <div>
+                                        <form action="{{ route('lombas.destroy', ['lomba' => $lomba->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
+                                                data-name="{{ $lomba->name }}">
+                                                <i class="bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

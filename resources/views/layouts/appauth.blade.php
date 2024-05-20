@@ -22,7 +22,6 @@
 <body>
     @include('layouts.nav')
     @yield('content')
-    @include('layouts.footer')
     @vite('resources/js/app.js')
     @include('sweetalert::alert')
     @stack('scripts')
