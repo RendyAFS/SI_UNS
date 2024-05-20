@@ -64,3 +64,16 @@ footer{
     border: solid 1px;
     color:var(--secondary-color);
 }
+
+.btn-login{
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border-radius: 15px;
+    transition: 0.7s;
+}
+
+.btn-login:hover{
+    background-color: var(--text-color);
+    color: var(--white-color);
+
+}
