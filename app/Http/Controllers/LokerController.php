@@ -15,7 +15,7 @@ class LokerController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Loker List';
+        $pageTitle = 'List Lowongan Kerja';
 
         $lokers = Loker::orderBy('created_at', 'desc')->get();
 
@@ -42,9 +42,10 @@ class LokerController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'requirement' => 'required',
-            'description' => 'required'
+            'nama' => 'required',
+            'persyaratan' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'required ',
         ], $messages);
 
         if ($validator->fails()) {
@@ -52,11 +53,11 @@ class LokerController extends Controller
         }
 
         $loker = new Loker();
-        $loker->name = $request->name;
-        $loker->requirement = $request->requirement;
-        $loker->description = $request->description;
+        $loker->name = $request->nama;
+        $loker->requirement = $request->persyaratan;
+        $loker->description = $request->deskripsi;
 
-        $file = $request->file('image');
+        $file = $request->file('foto');
         if ($file != null) {
             $filename = $file->getClientOriginalName();
             $file->storeAs('public/files', $filename);
@@ -65,7 +66,7 @@ class LokerController extends Controller
 
         $loker->save();
 
-        Alert::success('Added Successfully', 'Loker Data Added Successfully.');
+        Alert::success('Added Successfully', 'Lowongan Kerja Added Successfully.');
 
         return redirect()->route('lokers.index');
     }
@@ -104,9 +105,9 @@ class LokerController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'requirement' => 'required',
-            'description' => 'required'
+            'nama' => 'required',
+            'persyaratan' => 'required',
+            'deskripsi' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -114,13 +115,13 @@ class LokerController extends Controller
         }
 
         $loker = Loker::find($id);
-        $loker->name = $request->name;
-        $loker->requirement = $request->requirement;
-        $loker->description = $request->description;
+        $loker->name = $request->nama;
+        $loker->requirement = $request->persyaratan;
+        $loker->description = $request->deskripsi;
 
         $loker->save();
 
-        Alert::success('Changed Successfully', 'Loker Data Changed Successfully.');
+        Alert::success('Changed Successfully', 'Beasiswa Data Changed Successfully.');
 
         return redirect()->route('lokers.index');
     }
@@ -131,6 +132,10 @@ class LokerController extends Controller
     public function destroy(string $id)
     {
         $loker = Loker::find($id);
+
+        if ($loker->image) {
+            Storage::delete('public/files/' . $loker->image);
+        }
 
         $loker->delete();
 

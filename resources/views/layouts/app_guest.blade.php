@@ -20,12 +20,11 @@
 </head>
 
 <body>
-    @include('layouts.nav')
+    @include('layouts.nav_user')
     @yield('content')
-    @include('layouts.footer')
     @vite('resources/js/app.js')
     @include('sweetalert::alert')
     @stack('scripts')
 </body>
-
+    @include('layouts.footer')
 </html>

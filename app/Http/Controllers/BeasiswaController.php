@@ -16,7 +16,7 @@ class BeasiswaController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Beasiswa List';
+        $pageTitle = 'List Beasiswa';
 
         $beasiswas = Beasiswa::orderBy('created_at', 'desc')->get();
 
@@ -43,9 +43,10 @@ class BeasiswaController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'requirement' => 'required',
-            'description' => 'required'
+            'nama' => 'required',
+            'persyaratan' => 'required',
+            'deskripsi' => 'required',
+            'foto' => 'required ',
         ], $messages);
 
         if ($validator->fails()) {
@@ -53,11 +54,11 @@ class BeasiswaController extends Controller
         }
 
         $beasiswa = new Beasiswa();
-        $beasiswa->name = $request->name;
-        $beasiswa->requirement = $request->requirement;
-        $beasiswa->description = $request->description;
+        $beasiswa->name = $request->nama;
+        $beasiswa->requirement = $request->persyaratan;
+        $beasiswa->description = $request->deskripsi;
 
-        $file = $request->file('image');
+        $file = $request->file('foto');
         if ($file != null) {
             $filename = $file->getClientOriginalName();
             $file->storeAs('public/files', $filename);
@@ -105,9 +106,9 @@ class BeasiswaController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'requirement' => 'required',
-            'description' => 'required'
+            'nama' => 'required',
+            'persyaratan' => 'required',
+            'deskripsi' => 'required',
         ], $messages);
 
         if ($validator->fails()) {
@@ -115,9 +116,9 @@ class BeasiswaController extends Controller
         }
 
         $beasiswa = Beasiswa::find($id);
-        $beasiswa->name = $request->name;
-        $beasiswa->requirement = $request->requirement;
-        $beasiswa->description = $request->description;
+        $beasiswa->name = $request->nama;
+        $beasiswa->requirement = $request->persyaratan;
+        $beasiswa->description = $request->deskripsi;
 
         $beasiswa->save();
 
@@ -132,6 +133,10 @@ class BeasiswaController extends Controller
     public function destroy(string $id)
     {
         $beasiswa = beasiswa::find($id);
+
+        if ($beasiswa->image) {
+            Storage::delete('public/files/' . $beasiswa->image);
+        }
 
         $beasiswa->delete();
 

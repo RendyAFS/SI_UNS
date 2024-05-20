@@ -46,4 +46,31 @@ class GuestController extends Controller
 
         return view('guest.loker', compact('pageTitle', 'lokers'));
     }
+
+    public function infobeasiswa(string $id)
+    {
+        $pageTitle = 'List Beasiswa';
+
+        $beasiswa = Beasiswa::find($id);
+
+        return view('guest.detail_beasiswa', compact('pageTitle', 'beasiswa'));
+    }
+
+    public function infoLomba(string $id)
+    {
+        $pageTitle = 'List Lowonga Kerja';
+
+        $lomba = Lomba::find($id);
+
+        return view('guest.detail_lomba', compact('pageTitle', 'lomba'));
+    }
+
+    public function infoloker(string $id)
+    {
+        $pageTitle = 'List Lowonga Kerja';
+
+        $loker = Loker::find($id);
+
+        return view('guest.detail_loker', compact('pageTitle', 'loker'));
+    }
 }

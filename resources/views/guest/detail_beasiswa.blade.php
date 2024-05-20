@@ -1,4 +1,4 @@
-@extends('layouts.app_auth_nofooter')
+@extends('layouts.app_guest_nofooter')
 
 @section('content')
     <div class="container-sm my-5">
