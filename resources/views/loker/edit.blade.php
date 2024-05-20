@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 col-xl-6">
                     <div class="mb-3 text-center">
-                        <h4>Edit Loker</h4>
+                        <h4>Edit Lowongan kerja</h4>
                     </div>
                     <hr>
                     <div class="row">

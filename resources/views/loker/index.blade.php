@@ -10,7 +10,7 @@
                 <ul class="list-inline mb-0 float-end">
                     <li class="list-inline-item">
                         <a href="{{ route('lokers.create') }}" class="btn btn-dark">
-                            <i class="bi bi-plus-circle me-1"></i> Create Loker
+                            <i class="bi bi-plus-circle me-1"></i> Create Lowongan Kerja
                         </a>
                     </li>
                 </ul>

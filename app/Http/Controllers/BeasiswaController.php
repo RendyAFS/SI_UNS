@@ -18,7 +18,7 @@ class BeasiswaController extends Controller
     {
         $pageTitle = 'Beasiswa List';
 
-        $beasiswas = Beasiswa::all();
+        $beasiswas = Beasiswa::orderBy('created_at', 'desc')->get();
 
         return view('beasiswa.index', compact('pageTitle', 'beasiswas'));
     }

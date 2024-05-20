@@ -7,13 +7,13 @@
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
                     <div class="mb-3 text-center">
-                        <h4>Create Loker</h4>
+                        <h4>Create Lowongan Kerja</h4>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
                             <label for="name" class="form-label">Nama</label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Isi Nama Loker">
+                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Isi Nama Lowongan Kerja">
                             @error('name')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror

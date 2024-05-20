@@ -17,7 +17,7 @@ class LombaController extends Controller
     {
         $pageTitle = 'Lomba List';
 
-        $lombas = Lomba::all();
+        $lombas = Lomba::orderBy('created_at', 'desc')->get();
 
         return view('lomba.index', compact('pageTitle', 'lombas'));
     }

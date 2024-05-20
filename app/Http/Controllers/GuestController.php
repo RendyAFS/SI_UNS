@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
+    public function indexwelcome()
+    {
+        $pageTitle = 'Terbaru';
+
+        $beasiswas = Beasiswa::orderBy('created_at', 'desc')->take(2)->get();
+        $lombas = Lomba::orderBy('created_at', 'desc')->take(2)->get();
+        $lokers = Loker::orderBy('created_at', 'desc')->take(2)->get();
+
+        return view('welcome', compact('pageTitle', 'beasiswas', 'lombas', 'lokers'));
+    }
+
     public function indexbeasiswa()
     {
         $pageTitle = 'Beasiswa List';
@@ -35,5 +46,4 @@ class GuestController extends Controller
 
         return view('guest.loker', compact('pageTitle', 'lokers'));
     }
-
 }
