@@ -16,33 +16,40 @@
                 </ul>
             </div>
         </div>
+        <div class="container">
+
+        </div>
         <div class="row">
+            {{-- DATA --}}
             @foreach ($beasiswas as $beasiswa)
-                <div class="card mb-3" style="max-width: 540px; margin: 10px">
+                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded-start"
-                                alt="...">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded shadow" alt="..." style="max-height: 180px;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Beasiswa, {{ $beasiswa->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $beasiswa->name }}</h2>
                                 <p class="card-text">{{ $beasiswa->description }}</p>
-                                <a href="{{ route('beasiswas.show', ['beasiswa' => $beasiswa->id]) }}"
-                                    class="btn btn-outline-dark btn-sm me-2"><i class="fa-solid fa-circle-info"></i></a>
-                                <a href="{{ route('beasiswas.edit', ['beasiswa' => $beasiswa->id]) }}"
-                                    class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-                                <div>
-                                    <form action="{{ route('beasiswas.destroy', ['beasiswa' => $beasiswa->id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
-                                            data-name="{{ $beasiswa->name }}">
-                                            <i class="bi-trash"></i>
-                                        </button>
-                                    </form>
+
+                                {{-- Action --}}
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ route('beasiswas.show', ['beasiswa' => $beasiswa->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('beasiswas.edit', ['beasiswa' => $beasiswa->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                    <div>
+                                        <form action="{{ route('beasiswas.destroy', ['beasiswa' => $beasiswa->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
+                                                data-name="{{ $beasiswa->name }}">
+                                                <i class="bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appauth')
 
 @section('content')
     <div class="container">
@@ -6,7 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Login') }}</div>
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -69,14 +68,6 @@
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
-                                </div>
-                            </div> <br>
-
-                            <div class="row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <a class="dropdown-item" href="{{ route('register') }}">
-                                        Register
-                                    </a>
                                 </div>
                             </div>
                         </form>
