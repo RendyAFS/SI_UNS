@@ -11,7 +11,7 @@
         <hr class="line-hr">
 
         {{-- lomba --}}
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             {{-- DATA --}}
             @foreach ($lombas as $lomba)
                 <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
