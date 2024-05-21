@@ -9,16 +9,32 @@ use Illuminate\Http\Request;
 
 class GuestController extends Controller
 {
-    public function indexwelcome()
+    public function indexwelcome(Request $request)
     {
         $pageTitle = 'Terbaru';
+        $search = $request->input('search');
 
-        $beasiswas = Beasiswa::orderBy('created_at', 'desc')->take(2)->get();
-        $lombas = Lomba::orderBy('created_at', 'desc')->take(2)->get();
-        $lokers = Loker::orderBy('created_at', 'desc')->take(2)->get();
+        // Filter results based on the search query
+        $beasiswas = Beasiswa::when($search, function ($query, $search) {
+            return $query->where('name', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        })->orderBy('created_at', 'desc')->take(2)->get();
+
+        $lombas = Lomba::when($search, function ($query, $search) {
+            return $query->where('name', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        })->orderBy('created_at', 'desc')->take(2)->get();
+
+        $lokers = Loker::when($search, function ($query, $search) {
+            return $query->where('name', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        })->orderBy('created_at', 'desc')->take(2)->get();
 
         return view('welcome', compact('pageTitle', 'beasiswas', 'lombas', 'lokers'));
     }
+
+
+
 
     public function indexbeasiswa()
     {
