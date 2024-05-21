@@ -10,26 +10,32 @@
         </p>
         <hr class="line-hr">
 
+        {{-- Beasiswa --}}
         <div class="row">
             {{-- DATA --}}
             @foreach ($beasiswas as $beasiswa)
-                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded shadow"
-                                alt="..." style="max-height: 180px;">
+                            <a href="{{ asset('storage/files/' . $beasiswa->image) }}" target="_blank">
+                                <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded shadow"
+                                    alt="..." style="max-height: 180px;">
+                            </a>
                         </div>
+
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Beasiswa,
                                         {{ $beasiswa->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $beasiswa->name }}</h2>
-                                <p class="card-text">{{ $beasiswa->description }}</p>
+                                <p class="card-text overflow-hidden" style="max-height: 50px; height:50px">
+                                    {{ $beasiswa->description }}</p>
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('guest.detail_beasiswa', ['id' => $beasiswa->id]) }}"
-                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('guest.detail_beasiswa', ['id' => $beasiswa->id]) }}" class="baca-selengkapnya fw-bold">
+                                        Baca selengkapnya
+                                    </a>
                                 </div>
                             </div>
                         </div>
