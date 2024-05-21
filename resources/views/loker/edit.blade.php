@@ -6,49 +6,45 @@
             @csrf
             @method('put')
             <div class="row justify-content-center">
-                <div class="p-5 bg-light rounded-3 col-xl-6">
+                <div class="p-5 container-card shadow rounded-3 col-xl-6">
                     <div class="mb-3 text-center">
-                        <h4>Edit Lowongan kerja</h4>
+                        <h4 class="fw-bold">Edit Lowongan Kerja</h4>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="name" class="form-label">Nama</label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="nama"
-                                id="nama" value="{{ $errors->any() ? old('nama') : $loker->name }}">
+                            <label for="name" class="form-label fw-bold">Nama</label>
+                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="nama" id="nama" value="{{ $errors->any() ? old('nama') : $loker->name }}">
                             @error('nama')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
                         <div class="col-md-12">
-                            <label for="persyaratan" class="form-label">Persyaratan</label>
-                            <textarea class="form-control @error('persyaratan') is-invalid @enderror" name="persyaratan" id="persyaratan"
-                                rows="4">{{ $errors->any() ? old('persyaratan') : $loker->requirement }}</textarea>
+                            <label for="persyaratan" class="form-label fw-bold">Persyaratan</label>
+                            <textarea class="form-control @error('persyaratan') is-invalid @enderror" name="persyaratan" id="persyaratan" rows="4">{{ $errors->any() ? old('persyaratan') : $loker->requirement }}</textarea>
                             @error('persyaratan')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
                         <div class="col-md-12">
-                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi" rows="4">{{ $errors->any() ? old('deskripsi') : $loker->description }}</textarea>
                             @error('deskripsi')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
                         <div class="col-md-12 mb-3">
-                            <label for="foto" class="form-label">Foto</label>
+                            <label for="foto" class="form-label fw-bold">Foto</label>
                             <input type="file" class="form-control" name="foto" id="foto">
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6 d-grid">
-                            <a href="{{ route('lokers.index') }}" class="btn btn-outline-dark btn-lg mt-3"><i
-                                    class="bi-arrow-left-circle me-2"></i> Cancel</a>
+                            <a href="{{ route('lokers.index') }}" class="btn btn-outline-dark btn-cancle btn-lg mt-3 fw-bold"><i class="bi-arrow-left-circle me-2"></i> Cancel</a>
                         </div>
                         <div class="col-md-6 d-grid">
-                            <button type="submit" class="btn btn-dark btn-lg mt-3"><i class="bi-check-circle me-2"></i>
-                                Edit</button>
+                            <button type="submit" class="btn btn-save btn-outline-dark fw-bold btn-lg mt-3"><i class="bi-check-circle me-2"></i> Edit</button>
                         </div>
                     </div>
                 </div>
