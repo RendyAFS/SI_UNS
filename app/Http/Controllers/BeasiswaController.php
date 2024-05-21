@@ -120,6 +120,13 @@ class BeasiswaController extends Controller
         $beasiswa->requirement = $request->persyaratan;
         $beasiswa->description = $request->deskripsi;
 
+        $file = $request->file('foto');
+        if ($file != null) {
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/files', $filename);
+            $beasiswa->image = $filename;
+        }
+
         $beasiswa->save();
 
         Alert::success('Changed Successfully', 'Beasiswa Data Changed Successfully.');
