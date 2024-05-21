@@ -54,26 +54,32 @@
             </div>
         </div>
         <hr class="line-hr">
+        {{-- Beasiswa --}}
         <div class="row">
             {{-- DATA --}}
             @foreach ($beasiswas as $beasiswa)
-                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded shadow"
-                                alt="..." style="max-height: 180px;">
+                            <a href="{{ asset('storage/files/' . $beasiswa->image) }}" target="_blank">
+                                <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded shadow"
+                                    alt="..." style="max-height: 180px;">
+                            </a>
                         </div>
+
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Beasiswa,
                                         {{ $beasiswa->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $beasiswa->name }}</h2>
-                                <p class="card-text">{{ $beasiswa->description }}</p>
+                                <p class="card-text overflow-hidden" style="max-height: 50px; height:50px">
+                                    {{ $beasiswa->description }}</p>
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('guest.detail_beasiswa', ['id' => $beasiswa->id]) }}"
-                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('guest.detail_beasiswa', ['id' => $beasiswa->id]) }}" class="baca-selengkapnya fw-bold">
+                                        Baca selengkapnya
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -81,26 +87,31 @@
                 </div>
             @endforeach
         </div>
+        {{-- lomba --}}
         <div class="row">
             {{-- DATA --}}
             @foreach ($lombas as $lomba)
-                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('storage/files/' . $lomba->image) }}" class="img-fluid rounded shadow"
-                                alt="..." style="max-height: 180px;">
+                            <a href="{{ asset('storage/files/' . $lomba->image) }}" target="_blank">
+                                <img src="{{ asset('storage/files/' . $lomba->image) }}" class="img-fluid rounded shadow"
+                                    alt="..." style="max-height: 180px;">
+                            </a>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Lomba,
                                         {{ $lomba->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $lomba->name }}</h2>
-                                <p class="card-text">{{ $lomba->description }}</p>
+                                <p class="card-text overflow-hidden" style="max-height: 50px; height:50px">
+                                    {{ $lomba->description }}</p>
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('guest.detail_lomba', ['id' => $lomba->id]) }}"
-                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('guest.detail_lomba', ['id' => $lomba->id]) }}"class="baca-selengkapnya fw-bold">
+                                        Baca selengkapnya
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -108,26 +119,31 @@
                 </div>
             @endforeach
         </div>
+        {{-- loker --}}
         <div class="row">
             {{-- DATA --}}
             @foreach ($lokers as $loker)
-                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('storage/files/' . $loker->image) }}" class="img-fluid rounded shadow"
-                                alt="..." style="max-height: 180px;">
+                            <a href="{{ asset('storage/files/' . $loker->image) }}" target="_blank">
+                                <img src="{{ asset('storage/files/' . $loker->image) }}" class="img-fluid rounded shadow"
+                                    alt="..." style="max-height: 180px;">
+                            </a>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Loker,
                                         {{ $loker->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $loker->name }}</h2>
-                                <p class="card-text">{{ $loker->description }}</p>
+                                <p class="card-text overflow-hidden" style="max-height: 50px; height:50px">
+                                    {{ $loker->description }}</p>
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('guest.detail_loker', ['id' => $loker->id]) }}"
-                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('guest.detail_loker', ['id' => $loker->id]) }}"class="baca-selengkapnya fw-bold">
+                                        Baca selengkapnya
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -16,10 +16,10 @@
                 </ul>
             </div>
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             {{-- DATA --}}
             @foreach ($lombas as $lomba)
-                <div class="card mb-3 px-3 py-2" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2" style="max-width: 540px;  margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
                             <img src="{{ asset('storage/files/' . $lomba->image) }}" class="img-fluid rounded shadow" alt="..." style="max-height: 180px;">
@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <p class="card-text"><small class="text-body-secondary">Lomba, {{ $lomba->created_at }}</small></p>
                                 <h2 class="card-title" style="font-weight: bold">{{ $lomba->name }}</h2>
-                                <p class="card-text">{{ $lomba->description }}</p>
+                                <p class="card-text overflow-hidden" style="max-height: 50px; height:50px">{{ $lomba->description }}</p>
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">

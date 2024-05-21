@@ -2,11 +2,11 @@
 
 @section('content')
     {{-- PC --}}
-    <div class="container d-none d-lg-block pb-5">
+    <div class="container d-none d-lg-block p-4">
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="d-flex justify-content-center mt-5">
-                <div class="rounded-start-5 bg-white" style="width: 32%">
+            <div class="d-flex justify-content-center">
+                <div class="rounded-start-5 bg-white" style="width: 28%">
                     <div class="d-flex justify-content-center mt-5">
                         <img class="img" style="width: 30%" src="{{ Vite::asset('resources/assets/logo-uns.webp') }}"
                             alt="image">
@@ -55,7 +55,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="rounded-end-5" style="width: 32%">
+                <div class="rounded-end-5" style="width: 28%">
                     <img class="img" style="width: 100%"src="{{ Vite::asset('resources/assets/foto-login.webp') }}"
                         alt="image">
                 </div>
