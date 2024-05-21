@@ -10,16 +10,18 @@
 
             {{-- Search box pc --}}
             <div class="container">
-                <div class="input-group mb-3"
-                    style="width: 60%; position: absolute; top: 65%; left: 50%; transform: translateX(-50%); z-index: 10;">
-                    <input type="text" class="form-control rounded-start-4" placeholder="Search..." aria-label="Search"
-                        aria-describedby="basic-addon2">
-                    <span class="input-group-text p-1 rounded-end-4" id="basic-addon2">
-                        <button type="button" class="btn btn-light text-dark">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </span>
-                </div>
+                <form method="GET" action="{{ route('indexwelcome') }}">
+                    <div class="input-group mb-3"
+                        style="width: 60%; position: absolute; top: 65%; left: 50%; transform: translateX(-50%); z-index: 10;">
+                        <input type="text" name="search" class="form-control rounded-start-4" placeholder="Search..." aria-label="Search"
+                            aria-describedby="basic-addon2" value="{{ request()->query('search') }}">
+                        <span class="input-group-text p-1 rounded-end-4" id="basic-addon2">
+                            <button type="submit" class="btn btn-light text-dark">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </div>
             {{-- banner --}}
             <img class="img" style="width: 100%; z-index: 1;" src="{{ Vite::asset('resources/assets/banner.webp') }}"
@@ -30,15 +32,17 @@
     <div class="mb-3 mt-3 d-block d-md-none">
         {{-- Search box hp --}}
         <div class="container">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control rounded-start-4" placeholder="Search..." aria-label="Search"
-                    aria-describedby="basic-addon2">
-                <span class="input-group-text p-1 rounded-end-4" id="basic-addon2">
-                    <button type="button" class="btn btn-light">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </span>
-            </div>
+            <form method="GET" action="{{ route('indexwelcome') }}">
+                <div class="input-group mb-3">
+                    <input type="text" name="search" class="form-control rounded-start-4" placeholder="Search..." aria-label="Search"
+                        aria-describedby="basic-addon2" value="{{ request()->query('search') }}">
+                    <span class="input-group-text p-1 rounded-end-4" id="basic-addon2">
+                        <button type="submit" class="btn btn-light">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -58,7 +62,7 @@
         <div class="row">
             {{-- DATA --}}
             @foreach ($beasiswas as $beasiswa)
-                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px; margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
                             <a href="{{ asset('storage/files/' . $beasiswa->image) }}" target="_blank">
@@ -91,7 +95,7 @@
         <div class="row">
             {{-- DATA --}}
             @foreach ($lombas as $lomba)
-                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px; margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
                             <a href="{{ asset('storage/files/' . $lomba->image) }}" target="_blank">
@@ -109,7 +113,7 @@
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('guest.detail_lomba', ['id' => $lomba->id]) }}"class="baca-selengkapnya fw-bold">
+                                    <a href="{{ route('guest.detail_lomba', ['id' => $lomba->id]) }}" class="baca-selengkapnya fw-bold">
                                         Baca selengkapnya
                                     </a>
                                 </div>
@@ -123,7 +127,7 @@
         <div class="row">
             {{-- DATA --}}
             @foreach ($lokers as $loker)
-                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
+                <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px; margin: 10px">
                     <div class="row g-0">
                         <div class="col-md-4 d-flex justify-content-center align-items-center">
                             <a href="{{ asset('storage/files/' . $loker->image) }}" target="_blank">
@@ -141,7 +145,7 @@
 
                                 {{-- Action --}}
                                 <div class="d-flex justify-content-end">
-                                    <a href="{{ route('guest.detail_loker', ['id' => $loker->id]) }}"class="baca-selengkapnya fw-bold">
+                                    <a href="{{ route('guest.detail_loker', ['id' => $loker->id]) }}" class="baca-selengkapnya fw-bold">
                                         Baca selengkapnya
                                     </a>
                                 </div>

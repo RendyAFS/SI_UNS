@@ -11,7 +11,7 @@
         <hr class="line-hr">
 
         {{-- loker --}}
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             {{-- DATA --}}
             @foreach ($lokers as $loker)
                 <div class="card mb-3 px-3 py-2 hover-card" style="max-width: 640px;  margin: 10px">
