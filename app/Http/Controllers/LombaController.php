@@ -119,6 +119,13 @@ class LombaController extends Controller
         $lomba->requirement = $request->persyaratan;
         $lomba->description = $request->deskripsi;
 
+        $file = $request->file('foto');
+        if ($file != null) {
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/files', $filename);
+            $lomba->image = $filename;
+        }
+
         $lomba->save();
 
         Alert::success('Changed Successfully', 'Lomba Changed Successfully.');

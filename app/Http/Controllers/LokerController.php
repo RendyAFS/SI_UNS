@@ -119,6 +119,13 @@ class LokerController extends Controller
         $loker->requirement = $request->persyaratan;
         $loker->description = $request->deskripsi;
 
+        $file = $request->file('foto');
+        if ($file != null) {
+            $filename = $file->getClientOriginalName();
+            $file->storeAs('public/files', $filename);
+            $loker->image = $filename;
+        }
+
         $loker->save();
 
         Alert::success('Changed Successfully', 'Beasiswa Data Changed Successfully.');
