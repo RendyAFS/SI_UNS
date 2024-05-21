@@ -1,0 +1,61 @@
+@extends('layouts.app_auth')
+
+@section('content')
+    <div class="container mt-4">
+        <div class="row mb-0">
+            <div class="col-lg-9 col-xl-6">
+                <h4 class="mb-3">{{ $pageTitle }}</h4>
+            </div>
+            <div class="col-lg-3 col-xl-6">
+                <ul class="list-inline mb-0 float-end">
+                    <li class="list-inline-item">
+                        <a href="{{ route('beasiswas.create') }}" class="btn btn-dark">
+                            <i class="bi bi-plus-circle me-1"></i> Create Beasiswa
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+
+        </div>
+        <div class="row d-flex justify-content-center">
+            {{-- DATA --}}
+            @foreach ($beasiswas as $beasiswa)
+                <div class="card mb-3 px-3 py-2" style="max-width: 540px;  margin: 10px">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('storage/files/' . $beasiswa->image) }}" class="img-fluid rounded shadow" alt="..." style="max-height: 180px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text"><small class="text-body-secondary">Beasiswa, {{ $beasiswa->created_at }}</small></p>
+                                <h2 class="card-title" style="font-weight: bold">{{ $beasiswa->name }}</h2>
+                                <p class="card-text overflow-hidden" style="max-height: 50px; height:50px">{{ $beasiswa->description }}</p>
+
+                                {{-- Action --}}
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ route('beasiswas.show', ['beasiswa' => $beasiswa->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-info-circle"></i></a>
+                                    <a href="{{ route('beasiswas.edit', ['beasiswa' => $beasiswa->id]) }}"
+                                        class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                    <div>
+                                        <form action="{{ route('beasiswas.destroy', ['beasiswa' => $beasiswa->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-dark btn-sm me-2 btn-delete"
+                                                data-name="{{ $beasiswa->name }}">
+                                                <i class="bi-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+@endsection

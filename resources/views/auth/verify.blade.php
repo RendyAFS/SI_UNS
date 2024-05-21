@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_auth_nofooter')
 
 @section('content')
 <div class="container">
