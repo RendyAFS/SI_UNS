@@ -8,7 +8,7 @@
             <div class="d-flex justify-content-center">
                 <div class="rounded-start-5 bg-white" style="width: 28%">
                     <div class="d-flex justify-content-center mt-5">
-                        <img class="img" style="width: 30%" src="{{ Vite::asset('resources/assets/logo-uns.webp') }}"
+                        <img class="img" style="width: 30%" src="{{ asset('assets/logo-uns.webp') }}"
                             alt="image">
                     </div>
                     <div class="text">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="rounded-end-5" style="width: 28%">
-                    <img class="img" style="width: 100%"src="{{ Vite::asset('resources/assets/foto-login.webp') }}"
+                    <img class="img" style="width: 100%"src="{{ asset('assets/foto-login.webp') }}"
                         alt="image">
                 </div>
             </div>
@@ -70,7 +70,7 @@
             <div class="d-flex justify-content-center mt-3 pt-5">
                 <div class="rounded-5 bg-white" style="width: 90%">
                     <div class="d-flex justify-content-center mt-5">
-                        <img class="img" style="width: 30%" src="{{ Vite::asset('resources/assets/logo-uns.webp') }}"
+                        <img class="img" style="width: 30%" src="{{ asset('assets/logo-uns.webp') }}"
                             alt="image">
                     </div>
                     <div class="text">

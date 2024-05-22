@@ -6,7 +6,7 @@
             {{-- Logo banner --}}
             <img class="img"
                 style="width: 30%; position: absolute; top: 40%; left: 50%; transform: translateX(-50%); z-index: 10;"
-                src="{{ Vite::asset('resources/assets/logo-banner.webp') }}" alt="image">
+                src="{{ asset('assets/logo-banner.webp') }}" alt="image">
 
             {{-- Search box pc --}}
             <div class="container">
@@ -24,7 +24,7 @@
                 </form>
             </div>
             {{-- banner --}}
-            <img class="img" style="width: 100%; z-index: 1;" src="{{ Vite::asset('resources/assets/banner.webp') }}"
+            <img class="img" style="width: 100%; z-index: 1;" src="{{ asset('assets/banner.webp') }}"
                 alt="image">
         </div>
     </div>

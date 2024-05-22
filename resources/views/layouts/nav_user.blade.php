@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a href="/">
-                <img class="img" style="width: 80%" src="{{ Vite::asset('resources/assets/logo-siuns.webp') }}"
+                <img class="img" style="width: 80%" src="{{ asset('assets/logo-siuns.webp') }}"
                     alt="image">
             </a>
             {{-- btn humbuerger --}}
