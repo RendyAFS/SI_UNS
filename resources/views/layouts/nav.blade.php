@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #D6F0F3; padding: 1rem;">
             <div class="container">
                 <a href="{{ route('beasiswas.index') }}">
-                    <img class="img" style="width: 80%" src="{{ Vite::asset('resources/assets/logo-siuns.webp') }}"
+                    <img class="img" style="width: 80%" src="{{ asset('assets/logo-siuns.webp') }}"
                         alt="image">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
