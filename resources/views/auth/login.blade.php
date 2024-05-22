@@ -119,7 +119,7 @@
     </div>
 
     <script>
-        // pc
+        // untuk pc
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
         const icon = togglePassword.querySelector('i');
@@ -133,7 +133,7 @@
             icon.classList.toggle('bi-eye-slash');
         });
 
-        // hp
+        // untuk hp
         const togglePasswordMobile = document.querySelector('#togglePassword-mobile');
         const passwordMobile = document.querySelector('#password-mobile');
         const iconMobile = togglePasswordMobile.querySelector('i');
